@@ -1,5 +1,5 @@
 # Printf
-Our first collaborative project at Holberton School, The printf project
+Our first collaborative project at ALX SEP, The printf project
 is a Low-Level Programming project writen in C language.
 
 
@@ -130,7 +130,7 @@ file: [write_op2_funcs.c](./write_op2_funcs.c)
 
 # change log
 
-## 0.0.1 - 2018-19-10
+## 0.0.1 - 2022-07-13
 - add Martin Branch
 - Git flow initialized to this project.
 
@@ -138,5 +138,5 @@ file: [write_op2_funcs.c](./write_op2_funcs.c)
 
 # Authors
 
-- Martin Smith - [Github](http://github.com/Ostoyae) , [Twitter](https://twitter.com/@_Ostoyae)
-- Samie Azad - [Github](https://github.com/sazad44), 
+- Samuel Tijani - [Github]() , [Twitter]()
+- 2nd Partner - [Github](), 
