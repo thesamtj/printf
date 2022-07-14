@@ -1,142 +1,79 @@
-# Printf
-Our first collaborative project at ALX SEP, The printf project
-is a Low-Level Programming project writen in C language.
+﻿# 0x011 .C Printf
+The aim of the project is to understand the concept of team work and therefore, demisifying the concept of printf
 
+---
+# Tasks
 
-## Table of Context
-<!-- toc -->
+These are all the tasks of this project, the ones that are completed link to the corresponding files.
 
-- [Files](#Files)
-- [change log](#change-log)
-  * [0.0.1 - 2018-19-10](#001---2018-19-10)
-- [Authors](#Authors)
+### 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life]
+* Write a function that produces output according to format.
+  - c : converts input into a character
+  - s : converts input into a string
 
-<!-- tocstop -->
-# Files
+### 1. Education is when you read the fine print. Experience is what you get if you don't
+* Handle the following conversion specifiers:
+  - d : converts input into a base 10 integer
+  - i : converts input into an integer
 
-|          Goto          | Files                                          | Description                                                  |
-| :--------------------: | :--------------------------------------------- | ------------------------------------------------------------ |
-|      [📌](#printf)      | [printf.c](./printf.c)                         | Entry point for the `printf`.                                |
-|                        | [main.h](./main.c)                   | Header files for the the whole project.                      |
-|                        | [global_definitions.h](./global-definitions.h) | Header file that defines macro for `NULL`, `True`, and `False`. |
-|      [📌](#opidc)       | [opid.c](./opid.c)                             | Contains the functions for handling the function pointers.   |
-|   [📌](#buffer_intc)    | [buffer_int.c](./buffer_int.c)                 | Contains function to `Allocate` and `free` a `Buffer`.       |
-|   [📌](#buffer_opsc)    | [buffer_ops.c](./buffer_ops.c)                 | Contains functions related to the buffer.                    |
-|   [📌](#buffer_ops2c)   | [buffer_ops2.c](./buffer_ops2.c)               | Contains functions related to the buffer.                    |
-| [📌](#write_op_funcsc)  | [write_op_funcs.c](./write_op_funcs.c)         | Contains functions related to writing out the `Buffer` to `STDOUT`. |
-| [📌](#write_op2_funcsc) | [write_op2_funcs.c](write_op2_funcs.c)         | Contains a function that converts binary into base 10 number. |
+### 2. Just because it's in print doesn't mean it's the gospel
+* Create a man page for your function
 
+### 3. With a face like mine, I do better in print
+* Handle the following conversion specifiers:
+  - b : the unsigned int argument is converted to binary
 
+### 4. What one has not experienced, one will never understand in print
+* Handle the following conversion specifiers:
+  - u : converts the input into an unsigned integer
+  - o : converts the input into an octal number
+  - x : converts the input into a hexadecimal number
+  - X : converts the input into a hexadecimal number with capital letters
 
-## Printf
+### 5. Nothing in fine print is ever good news
+* Use a local buffer of 1024 chars in order to call write as little as possible.
 
-file: [printf.c](./printf.c)
+### 6. My weakness is wearing too much leopard print
+* Handle the following custom conversion specifier:
+  - S : prints the string
+  - Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
 
-| Function | Details                                               |
-| -------: | ----------------------------------------------------- |
-|  _printf | prints any string with certain flags for modification |
+### 7. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print
+* Handle the following conversion specifier:
+  - p : int input is converted to a pointer address
 
+### 8. The big print gives and the small print takes away
+* Handle the following flag characters for non-custom conversion specifiers:
+  - \+ : adds a \+ in front of signed positive numbers and a \- in front of signed negative numbers
+  - space : same as \+, but adds a space (is overwritten by \+)
+  - \# : adds a 0 in front of octal conversions that don't begin with one, and a 0x or 0X for x or X conversions
 
+### 9. Sarcasm is lost in print
+* Handle the following length modifiers for non-custom conversion specifiers:
+  - l : converts d, i, u, o, x, X conversions in short signed or unsigned ints
+  - h : converts d, i, u, o, x, X conversions in long signed or unsigned ints
 
-[back to files](#Files)
+### 10. Print some money and give it to us for the rain forests
+* Handle the field width for non-custom conversion specifiers.
 
+### 11. The negative is the equivalent of the composer's score, and the print the performance
+* Handle the precision for non-custom conversion specifiers.
 
+### 12. It's depressing when you're still around and your albums are out of print
+* Handle the 0 flag character for non-custom conversion specifiers.
 
-## opid.c
+### 13. Every time that I wanted to give up, if I saw an interesting textile, print what ever, suddenly I would see a collection]
+* Handle the - flag character for non-custom conversion specifiers.
 
-file: [opid.c](./opid.c)
+### 14. Print is the sharpest and the strongest weapon of our party
+* Handle the following custom conversion specifier:
+  - r : prints the reversed string
 
+### 15. The flood of print has turned reading into a process of gulping rather than savoring
+* Handle the following custom conversion specifier:
+  - R : prints the rot13'ed string
 
-| Function | Details                                  |
-| -------: | ---------------------------------------- |
-|     opid | opid - scans src string for an operator. |
+### 16. * 
+* All the above options work well together.
 
-
-
-[back to files](#Files)
-
-## buffer_int.c  
-
-file: [buffer_int.c](./buffer_int.c)  
-
-
-|   Function | Details                                                      |
-| ---------: | ------------------------------------------------------------ |
-|    buf_new | Function that create a `Buffer` `struct` at a default size of 1024 |
-| buf_custom | Function for create a `Buffer` `struct` with a custom size   |
-|    buf_end | frees `buffer` structure                                     |
-
-
-[back to files](#Files)
-
-## buffer_ops.c  
-
-file: [buffer_ops.c](./buffer_ops.c)  
-
-
-|    Function | Details                                    |
-| ----------: | ------------------------------------------ |
-|    buf_size | get the size                               |
-|   buf_index | gets the current index of                  |
-| buf_content | creates a copy of the buffer str field     |
-|   buf_write | writes out the `buffer` string to `stdout` |
-|      buf_wr | writes and reset the `buffer` string       |
-
-[back to files](#Files)
-
-
-
-## buffer_ops2.c 
-
-file: [buffer_ops2.c](./buffer_ops2.c)  
-
-
-| Function | Details                            |
-| -------: | ---------------------------------- |
-|  buf_inc | increment both index and overflow. |
-
-[back to files](#Files)
-
-## write_op_funcs.c 
-
-file: [write_op_funcs.c](./write_op_funcs.c)
-
-
-|   Function | Details                                      |
-| ---------: | -------------------------------------------- |
-| write_char | write a character to buffer                  |
-|  write_str | writes a string to buffer                    |
-|  write_mod | write a modulus symbol                       |
-|  write_int | write integer to the buffer                  |
-| append_num | Appends a number as an integer to the buffer |
-
-
-
-[back to files](#Files)
-
-## write_op2_funcs.c 
-
-file: [write_op2_funcs.c](./write_op2_funcs.c)
-
-
-|  Function | Details                    |
-| --------: | -------------------------- |
-| write_bin | convert a digit to binary. |
-
-
-
-[back to files](#Files)
-
-
-# change log
-
-## 0.0.1 - 2022-07-13
-- add Martin Branch
-- Git flow initialized to this project.
-
-
-
-# Authors
-
-- Samuel Tijani - [Github]() , [Twitter]()
-- 2nd Partner - [Github](), 
+---

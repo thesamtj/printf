@@ -1,82 +1,77 @@
-#ifndef _GLOBAL_DEFINITIONS_H
-#define _GLOBAL_DEFINITIONS_H
-
-/* #include "global_definitions.h" */
-
-#endif
-
-#ifndef STDLIB_H
-#define STDLIB_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdlib.h>
-
-#endif
-
-#ifndef STDARG_H
-#define STDARG_H
-
 #include <stdarg.h>
 
-#endif
-
-#ifndef _MAIN_H
-#define _MAIN_H
+/**
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _printf()
+ * @plus: flag for the '+' character
+ * @space: flag for the ' ' character
+ * @hash: flag for the '#' character
+ */
+typedef struct flags
+{
+    int plus;
+    int space;
+    int hash;
+} flags_t;
 
 /**
- * struct print_buffer - structer for the write buffer.
- * @index: current index of the buffer.
- * @size: size of the buffer.
- * @overflow: this recoreds the overflow.
- * @str: pointer to memory that contains the content for this buffer.
+ * struct printHandler - struct to choose the right function depending
+ * on the format specifier passed to _printf()
+ * @c: format specifier
+ * @f: pointer to the correct printing function
  */
-typedef struct print_buffer
+typedef struct printHandler
 {
-	size_t index;
-	size_t size;
-	size_t overflow;
-	char *str;
-} buffer;
+    char c;
+    int (*f)(va_list ap, flags_t *f);
+} ph;
 
-buffer *buf_new();
-buffer *buf_custom(size_t);
-size_t buf_size(buffer *);
-size_t buf_index(buffer *);
-char *buf_content(buffer *);
-void buf_write(buffer *);
-void buf_end(buffer *);
-void buf_wr(buffer *);
-void buf_inc(buffer *);
+/* print_nums */
+int print_int(va_list l, flags_t *f);
+void print_number(int n);
+int print_unsigned(va_list l, flags_t *f);
+int count_digit(int i);
 
-/**
- * struct print_ops - struct for the write operators.
- * @op: hold a symbol that represents the operator.
- * @fn: pointer function to the write functions.
- */
-typedef struct print_ops
-{
-	char *op;
-	int (*fn)(buffer *, va_list);
-} prtOp;
+/* print_bases */
+int print_hex(va_list l, flags_t *f);
+int print_hex_big(va_list l, flags_t *f);
+int print_binary(va_list l, flags_t *f);
+int print_octal(va_list l, flags_t *f);
 
-prtOp *prtOp_init();
+/* converter */
+char *convert(unsigned long int num, int base, int lowercase);
 
-void append_num(buffer *buf, unsigned int num);
-
-int write_bin(buffer *buf, va_list v_ls);
-
-/* Martin Above / Samie Below */
-
+/* _printf */
 int _printf(const char *format, ...);
 
-int opid(buffer *buf, va_list v_ls, const char *src, int src_i);
+/* get_print */
+int (*get_print(char s))(va_list, flags_t *);
 
-int write_char(buffer *buf, va_list v_ls);
+/* get_flag */
+int get_flag(char s, flags_t *f);
 
-int write_str(buffer *buf, va_list v_ls);
+/* print_alpha */
+int print_string(va_list l, flags_t *f);
+int print_char(va_list l, flags_t *f);
 
-int write_mod(buffer *buf, va_list v_ls);
+/* write_funcs */
+int _putchar(char c);
+int _puts(char *str);
 
-int write_int(buffer *buf, va_list v_ls);
+/* print_custom */
+int print_rot13(va_list l, flags_t *f);
+int print_rev(va_list l, flags_t *f);
+int print_bigS(va_list l, flags_t *f);
 
-char *itoc(int num, char *dest);
+/* print_address */
+int print_address(va_list l, flags_t *f);
+
+/* print_percent */
+int print_percent(va_list l, flags_t *f);
+
+
 #endif
