@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * get_print_func - selects the correct function to perform the operation.
  * @s: argument indentifier
